@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View{
 
@@ -30,12 +31,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         presenter = new MainPresenter();
         presenter.bindView(this);
         ButterKnife.bind(this);
-        getNewCatButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onNewCatButtonClick();
-            }
-        });
     }
 
     @Override
@@ -44,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         presenter.bindView(this);
     }
 
+    @OnClick(R.id.new_cat_button)
     public void onNewCatButtonClick() {
         presenter.onNewCatButtonClick();
     }
